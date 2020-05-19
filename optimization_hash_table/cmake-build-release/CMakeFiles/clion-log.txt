@@ -1,0 +1,4 @@
+/home/shugaley/proga/tools/CLion-2019.2.4/clion-2019.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /home/shugaley/proga/projects/1_sem/hash-table
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/shugaley/proga/projects/1_sem/hash-table/cmake-build-release
