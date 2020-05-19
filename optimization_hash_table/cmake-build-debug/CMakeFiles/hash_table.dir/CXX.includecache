@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shugaley/proga/projects/2_sem/asm/optim_hash_table/for_opt.cpp
+hash-table_header.h
+/home/shugaley/proga/projects/2_sem/asm/optim_hash_table/hash-table_header.h
+
+/home/shugaley/proga/projects/2_sem/asm/optim_hash_table/hash-table_header.h
+new_list_header.h
+/home/shugaley/proga/projects/2_sem/asm/optim_hash_table/new_list_header.h
+timer.h
+/home/shugaley/proga/projects/2_sem/asm/optim_hash_table/timer.h
+
+/home/shugaley/proga/projects/2_sem/asm/optim_hash_table/new_list_header.h
+cstdio
+-
+cstdlib
+-
+cstring
+-
+cctype
+-
+cassert
+-
+sys/stat.h
+-
+cmath
+-
+
+/home/shugaley/proga/projects/2_sem/asm/optim_hash_table/timer.h
+chrono
+-
+
