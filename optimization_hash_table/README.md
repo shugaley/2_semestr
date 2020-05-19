@@ -12,12 +12,13 @@ I used callgrind for analyzing "the worst" function. And I found two at once! Bu
 
 # Analyze After
 
-N is amount of reiterations of search for every hash-func (for some func N is smaller becouse i don't want to wait all my life when Hash-Func-Return1 finished work).
+N is amount of reiterations of search for every hash-func (for some func N is smaller becouse i don't want to wait all my life when Hash-Func-Return1 finished work). Time is measured in seconds rounded to tenths.
 
 There are results of my optimization: 
 
 ![](https://github.com/shugaley/2_semestr/blob/master/optimization_hash_table/tabl37.png)
 
+![](https://github.com/shugaley/2_semestr/blob/master/optimization_hash_table/diag.png)
 
 
 
