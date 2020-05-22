@@ -1,0 +1,1 @@
+/usr/bin/c++     -no-pie CMakeFiles/printf.dir/printf.asm.o CMakeFiles/printf.dir/test.cpp.o  -o printf 

@@ -1,0 +1,2 @@
+nasm -f elf64 -l printf.lst printf.s && g++ -c -o test.o test.cpp && g++ -no-pie -o test printf.o test.o
+

@@ -1,0 +1,3 @@
+/home/shugaley/proga/projects/2_sem/asm/printf/CMake/CMakeFiles/rebuild_cache.dir
+/home/shugaley/proga/projects/2_sem/asm/printf/CMake/CMakeFiles/main.dir
+/home/shugaley/proga/projects/2_sem/asm/printf/CMake/CMakeFiles/edit_cache.dir
