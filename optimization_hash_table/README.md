@@ -16,7 +16,7 @@ N is amount of reiterations of search for every hash-func (for some func N is sm
 
 There are results of my optimization: 
 
-![](https://github.com/shugaley/2_semestr/blob/master/optimization_hash_table/tabl37.png)
+![](https://github.com/shugaley/2_semestr/blob/master/optimization_hash_table/tabl_end.png)
 
 ![](https://github.com/shugaley/2_semestr/blob/master/optimization_hash_table/diag.png)
 
