@@ -11,6 +11,8 @@ But it became obvious that this can be done even faster after analyzing the resu
 
 # Optimization
 
+I made some optimizations. There are comparisons of first version and optimized version:
+
 1)
 
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/1.png)
@@ -28,5 +30,9 @@ But it became obvious that this can be done even faster after analyzing the resu
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/3_opt.png)
 
 # Final Results
+
+I could speed up my code by about 5%.
+
+There are final results:
 
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/General_final.png)
