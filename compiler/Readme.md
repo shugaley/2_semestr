@@ -1,4 +1,4 @@
-# Some Words About Compiler Optimization
+# A Few Words About Compiler Optimization
 
 Ok. I did it. Compiler has been finished. This year of endless proga has been finished. 
 
@@ -11,3 +11,22 @@ But it became obvious that this can be done even faster after analyzing the resu
 
 # Optimization
 
+1)
+
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/1.png)
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/1_opt.png)
+
+
+2)
+
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/2.png)
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/2_opt.png)
+
+3)
+
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/3.png)
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/3_opt.png)
+
+# Final Results
+
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/Generel_final.png)
