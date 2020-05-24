@@ -29,4 +29,4 @@ But it became obvious that this can be done even faster after analyzing the resu
 
 # Final Results
 
-![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/Generel_final.png)
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/General_final.png)
