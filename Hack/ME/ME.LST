@@ -1,0 +1,225 @@
+Turbo Assembler	 Version 4.1	    04/04/20 30:42:53	    Page 1
+me.asm
+
+
+
+      1
+      2				     locals @@
+      3
+      4				     .186
+      5	0000			     .model tiny
+      6	0000			     .code
+      7				     org 100h
+      8
+      9
+     10				     ;--------------------------------------------
+     11
+     12	0100  BA 0116r		     Start:	     mov dx, offset PromptMsg
+     13	0103  E8 00A7				     call PutS
+     14
+     15	0106  BF 01BEr				     mov di, offset Password
+     16	0109  57				     push di
+     17	010A  E8 00A5				     call GetS
+     18	010D  5F				     pop di
+     19
+     20	010E  E8 0070				     call Check
+     21
+     22	0111  B8 4C00				     mov ax, 4c00h
+     23	0114  CD 21				     int 21h
+     24
+     25				     ;--------------------------------------------
+     26
+     27	0116  0D 0A 45 6E 74 65	72+  PromptMsg	       db  0dh,	0ah, 'Enter Admin password:  $'
+     28	      20 41 64 6D 69 6E	20+
+     29	      70 61 73 73 77 6F	72+
+     30	      64 3A 20 20 24
+     31	0130  0D 0A 43 68 65 63	6B+  CheckingMsg       db  0dh,	0ah, 'Checking the password: $'
+     32	      69 6E 67 20 74 68	65+
+     33	      20 70 61 73 73 77	6F+
+     34	      72 64 3A 20 24
+     35	014A  0D 0A 46 75 63 6B	20+  CheckFailedMsg    db  0dh,	0ah, 'Fuck off Iskan!	     $'
+     36	      6F 66 66 20 49 73	6B+
+     37	      61 6E 21 20 20 20	20+
+     38	      20 20 20 20 24
+     39	0164  0D 0A 59 6F 79 20	61+  CheckRightsMsg    db  0dh,	0ah, 'Yoy are Pidar.	     $'
+     40	      72 65 20 50 69 64	61+
+     41	      72 2E 20 20 20 20	20+
+     42	      20 20 20 20 24
+     43
+     44	017E  47 4F 44		     AdminPassword     db 'GOD'
+     45	      =0003		     AdminPasswordLen  equ $ - AdminPassword
+     46
+     47				     ;---------------------------------------------
+     48				     Comment $
+     49
+     50				     Check - check password and	give admin rights or fuck you
+     51
+     52				     Entry:	     DI	- ptr to password
+     53
+     54				     Dstr:	     DX	SI DI CX
+     55
+     56				     Return:
+     57				     $
+Turbo Assembler	 Version 4.1	    04/04/20 30:42:53	    Page 2
+me.asm
+
+
+
+     58				     ;----------------------------------------------
+     59
+     60	0181			     Check	     proc
+     61
+     62	0181  BA 0130r				     mov dx, offset CheckingMsg
+     63	0184  E8 0026				     call PutS
+     64
+     65	0187  BE 017Er				     mov si, offset AdminPassword
+     66	018A  B9 0003				     mov cx, AdminPasswordLen
+     67	018D  E8 0010				     call CmpPwd
+     68
+     69	0190  E3 07				     jcxz @@CheckFailed
+     70
+     71	0192  BA 0164r				     mov dx, offset CheckRightsMsg
+     72	0195  E8 0015				     call PutS
+     73	0198  C3				     ret
+     74
+     75	0199  BA 014Ar		     @@CheckFailed:  mov dx, offset CheckFailedMsg
+     76	019C  E8 000E				     call PutS
+     77	019F  C3				     ret
+     78
+     79	01A0					     endp
+     80
+     81				     ;---------------------------------------------
+     82				     Comment $
+     83
+     84				     CmpPwd - cmp AdmPwd and Pwd
+     85
+     86				     Entry:	     DI	- pwd
+     87						     SI	- AdmPwd
+     88						     CX	- len of AdmPwd
+     89
+     90				     Dstr:	     DI	SI
+     91
+     92				     Return:	     CX	- res (0 - false
+     93							       1 - true)
+     94				     $
+     95				     ;--------------------------------------------
+     96
+     97	01A0			     CmpPwd	     proc
+     98
+     99	01A0  FC				     cld
+    100	01A1  F3> A6				     repe cmpsb	     ; while (cx-- && ds:[si++]	== es:[di++])
+    101
+    102	01A3  75 04				     jne @@PwdFalse
+    103
+    104	01A5  B9 0001				     mov cx, 1
+    105	01A8  C3				     ret
+    106
+    107	01A9  B9 0000		     @@PwdFalse:     mov cx, 0
+    108	01AC  C3				     ret
+    109
+    110	01AD					     endp
+    111
+    112				     ;---------------------------------------------
+    113				     Comment $
+    114
+Turbo Assembler	 Version 4.1	    04/04/20 30:42:53	    Page 3
+me.asm
+
+
+
+    115				     PutS - print a string
+    116
+    117				     Entry: DX - ptr to	string to print
+    118
+    119				     Destr: AH
+    120
+    121				     $
+    122				     ;--------------------------------------------
+    123
+    124	01AD			     PutS	     proc
+    125	01AD  B4 09				     mov ah, 09h
+    126	01AF  CD 21				     int 21h
+    127	01B1  C3				     ret
+    128	01B2					     endp
+    129
+    130
+    131
+    132				     ;--------------------------------------------
+    133				     Comment $
+    134
+    135				     GetS - Get	a string
+    136
+    137				     Entry:  DI	- ptr to string
+    138
+    139				     Destr:  AX
+    140
+    141				     Return: DI	- ptr to end of	the string
+    142
+    143				     $
+    144				     ;--------------------------------------------
+    145
+    146	01B2			     GetS	     proc
+    147
+    148	01B2  B4 01		     @@Next:	     mov ah, 01h
+    149	01B4  CD 21				     int 21h
+    150
+    151	01B6  3C 0D				     cmp al, 0dh
+    152	01B8  74 03				     je	@@End
+    153
+    154	01BA  AA				     stosb	   ; { es:[di] = al; inc di; }
+    155	01BB  EB F5				     jmp @@Next
+    156
+    157	01BD  C3		     @@End:	     ret
+    158	01BE					     endp
+    159
+    160
+    161	01BE  0A*(24)		     Password:	     db	10 dup ('$')
+    162
+    163				     end	     Start
+Turbo Assembler	 Version 4.1	    04/04/20 30:42:53	    Page 4
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "04/04/20"
+??FILENAME			  Text	 "me	  "
+??TIME				  Text	 "30:42:53"
+??VERSION			  Number 040A
+@32BIT				  Text	 0
+@@CHECKFAILED			  Near	 DGROUP:0199
+@@END				  Near	 DGROUP:01BD
+@@NEXT				  Near	 DGROUP:01B2
+@@PWDFALSE			  Near	 DGROUP:01A9
+@CODE				  Text	 DGROUP
+@CODESIZE			  Text	 0
+@CPU				  Text	 0103H
+@CURSEG				  Text	 _TEXT
+@DATA				  Text	 DGROUP
+@DATASIZE			  Text	 0
+@FILENAME			  Text	 ME
+@INTERFACE			  Text	 000H
+@MODEL				  Text	 1
+@STACK				  Text	 DGROUP
+@WORDSIZE			  Text	 2
+ADMINPASSWORD			  Byte	 DGROUP:017E
+ADMINPASSWORDLEN		  Number 0003
+CHECK				  Near	 DGROUP:0181
+CHECKFAILEDMSG			  Byte	 DGROUP:014A
+CHECKINGMSG			  Byte	 DGROUP:0130
+CHECKRIGHTSMSG			  Byte	 DGROUP:0164
+CMPPWD				  Near	 DGROUP:01A0
+GETS				  Near	 DGROUP:01B2
+PASSWORD			  Near	 DGROUP:01BE
+PROMPTMSG			  Byte	 DGROUP:0116
+PUTS				  Near	 DGROUP:01AD
+START				  Near	 DGROUP:0100
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+DGROUP				  Group
+  _DATA				  16  0000 Word	  Public  DATA
+  _TEXT				  16  01C8 Word	  Public  CODE
+
