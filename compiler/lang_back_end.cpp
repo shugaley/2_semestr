@@ -325,7 +325,7 @@ void  PrintOptm_BinInBuf()
         if(is_ThisCommand(now_byte, call, call_size))
             Optimize_Call(now_byte);
 
-        if(is_ThisCommand   (now_byte,  pop_rax, pop_rax_size))
+        if(is_ThisCommand(now_byte,  pop_rax, pop_rax_size))
         {
             char* prev1_byte    = now_byte - pop_rax_size;
 
@@ -850,7 +850,11 @@ void Optimize_Call(char* now_byte)
 
     Optimize_PushPop (prev1_byte, prev2_byte);
 
-    Optimize_FrameOut(prev2_byte - SIZE_SMALL_NUMBER - mov_rax_lrbpl_size,
+    Optimize_FrameOut(prev1_byte - SIZE_SMALL_NUMBER - mov_rax_lrbpl_size,      // lib_func
+                      prev1_byte - SIZE_SMALL_NUMBER - mov_rax_lrbpl_size
+                                 - SIZE_SMALL_NUMBER - mov_lrbpl_rax_size);
+
+    Optimize_FrameOut(prev2_byte - SIZE_SMALL_NUMBER - mov_rax_lrbpl_size,      // own_func
                       prev2_byte - SIZE_SMALL_NUMBER - mov_rax_lrbpl_size
                                  - SIZE_SMALL_NUMBER - mov_lrbpl_rax_size);
 }
@@ -901,6 +905,9 @@ bool is_ThisCommand(const char* now_byte, size_t command, size_t size_command)
         size_t copy_command = command;
         copy_command = copy_command >> 8 * i_byte;
 
+        /*if(now_byte[0] == 0x48 && now_byte[1] == 0xFFFFFF8B && now_byte[2] == 0x45)
+            fprintf(stderr, "\n%x---%x\n", now_byte[i_byte], static_cast<char>(copy_command));
+*/
         if(now_byte[i_byte] != static_cast<char>(copy_command))
             return false;
     }
