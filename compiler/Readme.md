@@ -4,6 +4,6 @@ Ok. I did it. Compiler is finished. This year of endless proga is finished.
 
 I measured the average acceleration. lang_input_test.txt was used for this (there are calculations of 8! N-times).
 It is results:
-#[]https://github.com/shugaley/2_semestr/blob/master/compiler/img/General.png
+![]https://github.com/shugaley/2_semestr/blob/master/compiler/img/General.png
 
 
