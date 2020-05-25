@@ -31,8 +31,8 @@ I made some optimizations. There are comparisons of first version and optimized 
 
 # Final Results
 
-I could speed up my code by about 5%. Not bad for a few hours of work.
+I could speed up my code by about 10%. Not bad for a few hours of work.
 
 There are final results:
 
-![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/General_final.png)
+![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/General_final_final.png)
