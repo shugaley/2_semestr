@@ -31,7 +31,7 @@ I made some optimizations. There are comparisons of first version and optimized 
 
 # Final Results
 
-I could speed up my code by about 5%.
+I could speed up my code by about 5%. Not bad for a few hours of work.
 
 There are final results:
 
