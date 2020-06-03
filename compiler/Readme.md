@@ -1,4 +1,4 @@
-# A Few Words About Compiler Optimization 
+# A Few Words About Compiler Optimization
 
 Ok. I did it. Compiler has been finished. This year of endless proga has been finished. 
 
