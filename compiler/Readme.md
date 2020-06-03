@@ -24,7 +24,7 @@ I made some optimizations. There are comparisons of first version and optimized 
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/2.png)
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/2_opt.png)
 
-3)
+3) 
 
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/3.png)
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/3_opt.png)
