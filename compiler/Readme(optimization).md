@@ -10,7 +10,7 @@ There are results:
 Not bad (acceleration is about 900).
 But it became obvious that this can be done even faster after analyzing the resulting code in edb.
 
-# Optimization
+## Optimization
 
 I made some optimizations. There are comparisons of first version and optimized version:
 
@@ -30,7 +30,7 @@ I made some optimizations. There are comparisons of first version and optimized 
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/3.png)
 ![](https://github.com/shugaley/2_semestr/blob/master/compiler/img/3_opt.png)
 
-# Final Results
+## Final Results
 
 I could speed up my code by about 10%. Not bad for a few hours of work.
 
